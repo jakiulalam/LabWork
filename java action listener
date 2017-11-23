@@ -1,0 +1,56 @@
+import javax.swing.JFrame;
+import javax.swing.JTextField;
+import java.awt.Rectangle;
+import javax.swing.JButton;
+import javax.swing.JPasswordField;
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+class mainFrame implements ActionListener
+{
+    JFrame f;
+    JTextField tf;
+    JTextField tf2;
+    JButton b;
+    public mainFrame()
+    {
+        createGUI();
+    }
+    public void createGUI()
+    {
+        f=new JFrame("FRAME");
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        f.setLayout(null);
+        f.setBounds(100,100,550,550);
+        Rectangle r=new Rectangle(50,50,200,20);
+        tf=new JTextField(30);
+        tf.setBounds(r);
+        f.add(tf);   
+        tf2=new JTextField(40);
+        r.translate(0,40);
+        tf2.setBounds(r);
+        f.add(tf2);   
+        b=new JButton("SAVE");
+        b.addActionListener(this);
+        r.translate(30,30);
+        r.setSize(100,20);
+        b.setBounds(r);
+        f.add(b);
+        f.setVisible(true);       
+    }
+    public void actionPerformed(ActionEvent e)
+    {
+        String a=tf.getText();
+        String b=tf2.getText();
+        tf.setText(b);
+        tf2.setText(a);
+    }
+}
+class mainClass
+{
+    public static void main(String args[])
+    {
+        mainFrame f=new mainFrame();
+       
+    }
+}
